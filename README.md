@@ -119,7 +119,7 @@ This method will return an array of designers (each with a list of their current
 						email: 'john.doe@gmail.com',
 						deleted: false,
 						invitationAccepted: true
-					}
+					}]
 			    } 
 			] 
 	    }
