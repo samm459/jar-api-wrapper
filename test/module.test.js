@@ -28,10 +28,11 @@ describe('getActiveClients', () => {
 });
 
 describe('getAllDesigners', () => {
-    it('returns an array of designers', async() => {
+    it('returns an of designers', async() => {
         let designers = await jar.getAllDesigners(process.env.JAR_TOKEN);
         for (d of designers) {
             expect(d).to.include.keys('firstName', 'lastName', 'email', 'clients');
         }
+        console.log(designers);
     });
 });
