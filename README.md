@@ -93,7 +93,7 @@ Similar to jar.getAllClients, except it will only return clients with a status o
 
 ### jar.getAllDesigners
 
-This method will return an array of designers. This array is derived from your list of clients meaning that **this method will only return writers that have been auto-assigned to a client!** The Jar api does not have any endpoints specifically for designers, so this is the only way to access designer data.
+This method will return an array of designers. This array is derived from your list of clients meaning that **this method will only return designers that have been auto-assigned to a client!** The Jar api does not have any endpoints specifically for designers, so this is the only way to access designer data.
 
 This method will return an array of designers (each with a list of their current clients):
 
