@@ -4,7 +4,7 @@ let axios = require('axios');
 /**
  * async function getRawClientData
  * 
- * Fetches a page of client data from Jar api
+ * Fetches a page of client data from Jar api.
  * @param {number} page page number
  * @param {string} key auth token for Jar
  * 
@@ -18,7 +18,7 @@ async function getRawClientData(page, key) {
  * async function getAllClients
  * 
  * Loops through all pages of clients returned by Jar api
- * and pushes each client object to an array
+ * and pushes each client object to an array.
  * @param {string} key auth token for Jar
  * 
  * @public
@@ -44,7 +44,7 @@ async function getAllClients(key) {
 /**
  * async function getActiveClients
  * 
- * Get clients that have a status of 'active'
+ * Get clients that have a status of 'active'.
  * @param {string} key 
  * 
  * @public
@@ -59,7 +59,7 @@ async function getActiveClients(key) {
  * async function getAllDesigners
  * 
  * Makes a unique array of writer objects from client array
- * then add respective clients to their writer object
+ * then add respective clients to their writer object.
  * @param {string} key 
  * 
  * @public
@@ -90,15 +90,39 @@ async function getAllDesigners(key) {
 }
 
 /**
+ * async function get getDesignerByEmail
+ * 
+ * Returns the designer that owns the email passed in.
+ * @param {string} email
+ * @param {string} key
+ * 
+ * @public
+ */
+async function getDesignerByEmail(email, key) {
+    let designers = await getAllDesigners(key);
+    let designer = designers.find(designer => designer.email == email);
+    return designer;
+}
+
+/**
  * async function getAllWriters
  * 
  * @alias getAllDesigners
  */
 let getAllWriters = getAllDesigners;
 
+/**
+ * async function getWriterByEmail
+ * 
+ * @alias getDesignerByEmail
+ */
+let getWriterByEmail = getDesignerByEmail;
+
 module.exports = {
     getAllClients,
     getActiveClients,
     getAllDesigners,
-    getAllWriters
+    getAllWriters,
+    getDesignerByEmail,
+    getWriterByEmail
 }
