@@ -105,6 +105,31 @@ async function getDesignerByEmail(email, key) {
 }
 
 /**
+ * async function isDesigner
+ * 
+ * Asks jar is the email and password passed in belog to a Jar user.
+ * Returns true if Jar can authenticate the email and password passed in.
+ * @param {string} email
+ * @param {string} password
+ * 
+ * @public
+ */
+async function isDesigner(email, password) {
+    try {
+        let res = await axios.post('https://contentcucumber.jarhq.com/login', {
+            user: {
+                email,
+                password
+            }
+        });
+        if (res.status == 201) return true;
+        else return false;
+    } catch {
+        return false;
+    }
+}
+
+/**
  * async function getAllWriters
  * 
  * @alias getAllDesigners
@@ -118,11 +143,20 @@ let getAllWriters = getAllDesigners;
  */
 let getWriterByEmail = getDesignerByEmail;
 
+/**
+ * async function isWriter
+ * 
+ * @alias isDesigner
+ */
+let isWriter = isDesigner;
+
 module.exports = {
     getAllClients,
     getActiveClients,
     getAllDesigners,
     getAllWriters,
     getDesignerByEmail,
-    getWriterByEmail
+    getWriterByEmail,
+    isDesigner,
+    isWriter
 }
