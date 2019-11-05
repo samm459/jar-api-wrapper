@@ -81,7 +81,11 @@ async function getAllDesigners(key) {
             for (designer of designers) {
                 if (!designer.clients) designer.clients = [];
                 if (client.designer.email == designer.email) {
-                    designer.clients.push(client);
+                    designer.clients.push({
+                        name: client.name,
+                        createdAt: client.createdAt,
+                        users: client.users
+                    });
                 }
             }
         }

@@ -34,6 +34,10 @@ describe('getAllDesigners', () => {
             expect(d).to.include.keys('firstName', 'lastName', 'email', 'clients');
         }
     });
+    it('deletes the client\'s designer so as to not return a circular object', async() => {
+        let designers = await jar.getAllDesigners(process.env.JAR_TOKEN);
+        expect(designers[0].clients[0].designer).to.be.undefined;
+    });
 });
 
 describe('getDesignerByEmail', () => {
