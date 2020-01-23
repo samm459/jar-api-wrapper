@@ -51,15 +51,15 @@ describe('getDesignerByEmail', () => {
 
 describe('authDesigner', () => {
     it('returns true when a valid jar user is passed in', async() => {
-        let validDesigner = await jar.isDesigner(process.env.TEST_JAR_EMAIL, process.env.TEST_JAR_PASSWORD);
+        let validDesigner = await jar.isDesigner(process.env.JAR_EMAIL, process.env.JAR_PASSWORD);
         expect(validDesigner).to.be.true;
     });
     it('returns false when password is not correct', async() => {
-        let validDesigner = await jar.isDesigner(process.env.TEST_JAR_EMAIL, 'wrong password');
+        let validDesigner = await jar.isDesigner(process.env.JAR_EMAIL, 'wrong password');
         expect(validDesigner).to.be.false;
     });
     it('returns false when email does not exist', async() => {
-        let validDesigner = await jar.isDesigner('invalid@email.com', process.env.TEST_JAR_PASSWORD);
+        let validDesigner = await jar.isDesigner('invalid@email.com', process.env.JAR_PASSWORD);
         expect(validDesigner).to.be.false;
     });
 });
