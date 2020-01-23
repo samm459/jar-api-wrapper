@@ -44,6 +44,7 @@ describe('getDesignerByEmail', () => {
     it('returns the designer by the email passed in', async() => {
         let designers = await jar.getAllDesigners(process.env.JAR_TOKEN);
         let designer = await jar.getDesignerByEmail(designers[0].email, process.env.JAR_TOKEN);
+        console.log(designer);
         expect(designer).to.not.be.undefined;
         expect(designer).eql(designers[0]);
     });
