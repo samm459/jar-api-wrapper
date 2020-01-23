@@ -4,7 +4,7 @@ require('dotenv').config();
 const chai = require('chai');
 const { expect } = chai;
 const chaiHttp = require('chai-http');
-const jar = require('../main');
+const jar = require('..');
 
 // Chai Plugins
 chai.use(chaiHttp);
@@ -49,7 +49,7 @@ describe('getDesignerByEmail', () => {
     });
 });
 
-describe('authDesigner', () => {
+describe('isDesigner', () => {
     it('returns true when a valid jar user is passed in', async() => {
         let validDesigner = await jar.isDesigner(process.env.JAR_EMAIL, process.env.JAR_PASSWORD);
         expect(validDesigner).to.be.true;
